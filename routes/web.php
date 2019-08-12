@@ -9,10 +9,14 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
+
+use App\Link;
 
 Route::get('/', function () {
-    return view('welcome');
+    $links = Link::all();
+
+    return view('welcome')->with('links', $links);
 });
 
 Auth::routes();
